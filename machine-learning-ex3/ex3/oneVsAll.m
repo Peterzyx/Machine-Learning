@@ -53,13 +53,7 @@ for K = 1:num_labels
   initial_theta = zeros(n + 1, 1);
   options = optimset('GradObj', 'on', 'MaxIter', 50);
   %[J_compute, grad_compute] = lrCostFunction(initial_theta,X,y,lambda);
-  c = 0;
-  if K == 10
-    c = 0;
-  else
-    c = K;
-  end
-  theta = fmincg(@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);
+  theta = fmincg(@(t)(lrCostFunction(t, X, (y == K), lambda)), initial_theta, options);
   all_theta(K,:) = theta';
 end
 
