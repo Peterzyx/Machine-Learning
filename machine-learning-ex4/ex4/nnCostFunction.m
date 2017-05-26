@@ -75,10 +75,7 @@ for t = 1:m;
   Theta2_grad = Theta2_grad + delta_3 * [1; layer_2_activation]';
 end
 
-Theta1_grad = 1/m * Theta1_grad;
-Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + lambda/m * Theta1(:,2:end);
-Theta2_grad = 1/m * Theta2_grad;
-Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + lambda/m * Theta2(:,2:end);
+
 
 
 % Part 3: Implement regularization with the cost function and gradients.
@@ -90,7 +87,10 @@ Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + lambda/m * Theta2(:,2:end);
 %
 
 
-
+Theta1_grad = 1/m * Theta1_grad;
+Theta1_grad(:,2:end) = Theta1_grad(:,2:end) + lambda/m * Theta1(:,2:end);
+Theta2_grad = 1/m * Theta2_grad;
+Theta2_grad(:,2:end) = Theta2_grad(:,2:end) + lambda/m * Theta2(:,2:end);
 
 
 
